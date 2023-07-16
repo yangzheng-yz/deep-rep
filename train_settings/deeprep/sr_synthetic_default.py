@@ -21,18 +21,19 @@ from trainers import SimpleTrainer
 import data.transforms as tfm
 from admin.multigpu import MultiGPU
 from models.loss.image_quality_v2 import PSNR, PixelWiseError
-
+import os
+os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
 def run(settings):
     settings.description = 'Default parameters for training Deep Reparametrization model for RAW burst super-resolution' \
                            'on SyntheticBurst dataset'
-    settings.batch_size = 16
+    settings.batch_size = 8
     settings.num_workers = 8
     settings.multi_gpu = True
     settings.print_interval = 1
 
     settings.crop_sz = (384 + 48, 384 + 48)
-    settings.burst_sz = 14
+    settings.burst_sz = 6
     settings.downsample_factor = 4
 
     settings.burst_transformation_params = {'max_translation': 24.0,

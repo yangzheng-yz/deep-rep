@@ -2,10 +2,12 @@ import torch
 import torch.utils.data.dataloader
 import importlib
 import collections
-from torch._six import string_classes
+# from torch._six import string_classes
 from admin.tensordict import TensorDict
 
 int_classes = int
+string_classes = (str,)
+
 
 def _check_use_shared_memory():
     if hasattr(torch.utils.data.dataloader, '_use_shared_memory'):
