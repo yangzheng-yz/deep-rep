@@ -76,7 +76,7 @@ class SteepestDescentOptimizer(nn.Module):
         return data_residual
 
     def forward(self, y_init, x, offsets, num_iter=None, noise_estimate=None):
-        num_iter = self.num_iter if num_iter is None else num_iter
+        num_iter = self.num_iter if num_iter is None else num_iter # 1
 
         losses = []
 

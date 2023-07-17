@@ -65,5 +65,5 @@ class ResEncoder(nn.Module):
 
         if burst_mode:
             out = out.view(shape[0], shape[1], *out.shape[-3:])
-
+        # out.shape[1] is burst size
         return {'enc': out}
